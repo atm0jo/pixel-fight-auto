@@ -55,7 +55,7 @@ class Battle:
                 data = json.loads(data[2:])
                 print(data)
                 if data[0] == "HIT":
-                    print(f"\r🎈 {Fore.MAGENTA+Style.BRIGHT}[ Fight ]\t\t: {self.player1['name']} ({data[1]['player1']['energy']}) 👀 ({data[1]['player2']['energy']}) {self.player2['name']}", end="\r", flush=True)
+                    print(f"\r {Fore.MAGENTA+Style.BRIGHT}[ Fight ]\t\t: {self.player1['name']} ({data[1]['player1']['energy']}) 👀 ({data[1]['player2']['energy']}) {self.player2['name']}", end="\r", flush=True)
                 elif data[0] == "SET_SUPER_HIT_PREPARE":
                     self.superHit = True
                 elif data[0] == "SET_SUPER_HIT_ATTACK_ZONE":
@@ -84,9 +84,9 @@ class Battle:
                     await asyncio.sleep(0.5)
                     print('')
                     if data[1]['result'] == "WIN":
-                        print(f"🍏 {Fore.MAGENTA+Style.BRIGHT}[ Fight ]\t\t: [ Result ] {data[1]['result']} | [ Reward ] {data[1]['reward']} Coins")
+                        print(f" {Fore.MAGENTA+Style.BRIGHT}[ Fight ]\t\t: [ Result ] {data[1]['result']} | [ Reward ] {data[1]['reward']} Coins")
                     else:
-                        print(f"🍎 {Fore.MAGENTA+Style.BRIGHT}[ Fight ]\t\t: [ Result ] {data[1]['result']} | [ Reward ] {data[1]['reward']} Coins")
+                        print(f" {Fore.MAGENTA+Style.BRIGHT}[ Fight ]\t\t: [ Result ] {data[1]['result']} | [ Reward ] {data[1]['reward']} Coins")
 
                     await self.websocket.recv()
                     self.stop_event.set()
@@ -130,10 +130,10 @@ class Battle:
                 "name": data[1]['player2']['username']
             }
 
-            print(f"👻 {Fore.MAGENTA+Style.BRIGHT}[ Fight ]\t\t: Pertarungan Antara {Fore.RED+Style.BRIGHT}{data[1]['player1']['username']} 👀 {data[1]['player2']['username']}")
+            print(f" {Fore.MAGENTA+Style.BRIGHT}[ Fight ]\t\t: Pertarungan Antara {Fore.RED+Style.BRIGHT}{data[1]['player1']['username']} 👀 {data[1]['player2']['username']}")
             
             for i in range(5, 0, -1):
-                print(f"\r👻 {Fore.MAGENTA+Style.BRIGHT}[ Fight ]\t\t: Pertarungan Dimulai Dalam {i} Detik", end="\r", flush=True)
+                print(f"\r {Fore.MAGENTA+Style.BRIGHT}[ Fight ]\t\t: Pertarungan Dimulai Dalam {i} Detik", end="\r", flush=True)
                 await asyncio.sleep(1)
             
             print('')
