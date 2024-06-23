@@ -63,16 +63,16 @@ class UserPixel:
         for pet in pets:
             if auto_upgrade:
                 if pet['userPet']['isMaxLevel'] == True:
-                    print(f"🐈 {Fore.GREEN+Style.BRIGHT}[ Pets ]\t\t: [ {pet['name']} ] Is Max Level")
+                    print(f" {Fore.GREEN+Style.BRIGHT}[ Pets ]\t\t: [ {pet['name']} ] Is Max Level")
                 else:
                     if currBalance >= pet['userPet']['levelUpPrice']:
                         self.upgrade(pet['userPet']['id'])
-                        print(f"🐈 {Fore.GREEN+Style.BRIGHT}[ Pets ]\t\t: [ {pet['name']} ] Success Level Up")
+                        print(f" {Fore.GREEN+Style.BRIGHT}[ Pets ]\t\t: [ {pet['name']} ] Success Level Up")
                         sleep(0.5)
                     else:
-                        print(f"🐈 {Fore.YELLOW+Style.BRIGHT}[ Pets ]\t\t: Not Enough Coins To Upgrade [ {pet['name']} ] {(split_chunk(str(int(pet['userPet']['levelUpPrice'] - data['clicksCount']))))} Coins Remaining")
+                        print(f" {Fore.YELLOW+Style.BRIGHT}[ Pets ]\t\t: Not Enough Coins To Upgrade [ {pet['name']} ] {(split_chunk(str(int(pet['userPet']['levelUpPrice'] - data['clicksCount']))))} Coins Remaining")
             else:
-                print(f"🐈 {Fore.GREEN+Style.BRIGHT}[ Pets ]\t\t: [ {pet['name']} ] Can Upgrade")
+                print(f" {Fore.GREEN+Style.BRIGHT}[ Pets ]\t\t: [ {pet['name']} ] Can Upgrade")
 
     def claim(self):
         url = "https://api-clicker.pixelverse.xyz/api/mining/claim"
